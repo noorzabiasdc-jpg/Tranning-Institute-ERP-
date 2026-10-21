@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Institute ERP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div>
+      <h1>Training Institute ERP</h1>
+      <p>Student Management System</p>
+    </div>
+    <span class="admin">Admin Panel</span>
+  </header>
+
+  <main class="container">
+
+    <section class="dashboard">
+      <div class="card">
+        <p>Total Students</p>
+        <h2 id="totalStudents">0</h2>
+      </div>
+      <div class="card">
+        <p>Total Course Fees</p>
+        <h2 id="totalFees">₹0</h2>
+      </div>
+      <div class="card">
+        <p>Fees Received</p>
+        <h2 id="feesReceived">₹0</h2>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 id="formTitle">Add New Student</h2>
+
+      <form id="studentForm">
+        <div class="form-grid">
+          <div>
+            <label for="name">Student Name *</label>
+            <input id="name" type="text" required
+                   placeholder="Enter full name">
+          </div>
+
+          <div>
+            <label for="phone">Phone Number *</label>
+            <input id="phone" type="tel" required
+                   pattern="[0-9]{10}" maxlength="10"
+                   placeholder="10-digit mobile number">
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email"
+                   placeholder="student@example.com">
+          </div>
+
+          <div>
+            <label for="course">Course *</label>
+            <select id="course" required>
+              <option value="">Select course</option>
+              <option>Web Development</option>
+              <option>WordPress</option>
+              <option>Digital Marketing</option>
+              <option>Graphic Design</option>
+              <option>Computer Basics</option>
+              <option>JavaScript</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="fees">Total Course Fees (₹) *</label>
+            <input id="fees" type="number" min="0" required
+                   placeholder="e.g. 15000">
+          </div>
+
+          <div>
+            <label for="paid">Amount Paid (₹) *</label>
+            <input id="paid" type="number" min="0" value="0" required>
+          </div>
+
+          <div>
+            <label for="joiningDate">Joining Date *</label>
+            <input id="joiningDate" type="date" required>
+          </div>
+
+          <div>
+            <label for="status">Student Status</label>
+            <select id="status">
+              <option>Active</option>
+              <option>Completed</option>
+              <option>Inactive</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="formMessage" role="status"></p>
+
+        <div class="form-actions">
+          <button type="submit" id="saveButton">
+            Add Student
+          </button>
+          <button type="button" id="cancelButton" class="secondary hidden">
+            Cancel Edit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <h2>Student Records</h2>
+        <input id="search" type="search"
+               placeholder="Search name, phone or course...">
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name / Contact</th>
+              <th>Course</th>
+              <th>Total Fees</th>
+              <th>Paid</th>
+              <th>Due</th>
+              <th>Joining Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+      </div>
+
+      <p id="emptyMessage">No students added yet.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    Training Institute ERP Simulator · Demo Project
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
